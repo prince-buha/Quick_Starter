@@ -1,10 +1,19 @@
 import 'dart:io';
 
 void main() {
-  List<String> food = ['Dhosa', 'Idli', 'Bhajipau', 'Pizza'];
+  List<String> food = [];
+
+  stdout.write('Enter the number of  foods: ');
+  int n = int.parse(stdin.readLineSync()!);
+
+  for (int i = 0; i < n; i++) {
+    stdout.write('Enter food item ${i + 1}: ');
+    String foodItem = stdin.readLineSync()!;
+    food.insert(i, foodItem);
+  }
 
   while (true) {
-    print("$food\n");
+    print("\n$food\n");
     print("Menu:");
     print("press for 1. Add Food");
     print("press for 2. Update Food");
@@ -20,7 +29,7 @@ void main() {
       case 1:
         stdout.write("Enter the food to add: ");
         String newFood = stdin.readLineSync()!;
-        food.add(newFood);
+        food.insert(food.length, newFood);
         print("$newFood added.");
         break;
 
